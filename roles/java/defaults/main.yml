@@ -1,0 +1,3 @@
+---
+# Default variables for the Java role
+java_package: openjdk-11-jdk
