@@ -3,7 +3,7 @@
   remote_user: ubuntu
   become: yes
   vars:
-    ansible_ssh_private_key_file: "/home/ubuntu/devopsclass.pem"
+    ansible_ssh_private_key_file: "/home/ubuntu/keys/devopsclass.pem"
   roles:
     - nginx
     - docker
