@@ -1,0 +1,17 @@
+# ~/.ansible/roles/nisheshthakuri.nisheshrole/tasks/main.yml
+---
+- name: Include Docker role
+  include_role:
+    name: docker
+
+- name: Include Nginx role
+  include_role:
+    name: nginx
+
+- name: Include MySQL role
+  include_role:
+    name: mysql
+
+- name: Include Java role
+  include_role:
+    name: java
