@@ -1,0 +1,25 @@
+---
+
+- name: Update apt package index
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Install MySQL server
+  apt:
+    name: mysql-server
+    state: present
+
+- name: Ensure MySQL service is started and enabled
+  service:
+    name: mysql
+    state: started
+    enabled: yes
+
+- name: Verify MySQL installation
+  command: mysql --version
+  register: mysql_version_output
+  changed_when: no
+
+- name: Print MySQL version
+  debug:
+    msg: "{{ mysql_version_output.stdout }}"

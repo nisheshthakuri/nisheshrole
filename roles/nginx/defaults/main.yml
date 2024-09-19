@@ -1,0 +1,5 @@
+# Default variables for the webserver role
+nginx_port: 80
+web_root: /var/www/html
+index_html_source: files/index.html
+nginx_config_source: files/nginx-default

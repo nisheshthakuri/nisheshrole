@@ -1,0 +1,3 @@
+---
+# Default variables for the Docker role
+docker_package: docker.io

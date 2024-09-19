@@ -1,0 +1,32 @@
+---
+# Tasks for the webserver role
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: Ensure Nginx is started and enabled
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+
+- name: Create the directory for the HTML file
+  file:
+    path: "{{ web_root }}"
+    state: directory
+    mode: '0755'
+
+- name: Copy index.html to the server
+  copy:
+    src: "{{ index_html_source }}"
+    dest: "{{ web_root }}/index.html"
+    mode: '0644'
+
+- name: Copy Nginx configuration file
+  copy:
+    src: "{{ nginx_config_source }}"
+    dest: /etc/nginx/sites-available/default
+    mode: '0644'
+  notify:
+    - Reload Nginx

@@ -1,0 +1,6 @@
+---
+# Handlers for the webserver role
+- name: Reload Nginx
+  service:
+    name: nginx
+    state: reloaded
